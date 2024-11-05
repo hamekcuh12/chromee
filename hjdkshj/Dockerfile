@@ -19,7 +19,7 @@ COPY /root /root
 # Ensure scripts are executable
 RUN chmod +x /piss/install.sh /chromm && chmod +x /root/*
 
-# Install required packages, including PyXDG
+# Install required packages, including Google Chrome
 RUN \
   echo "**** install packages ****" && \
   apt-get update && \
@@ -35,9 +35,7 @@ RUN \
     libu2f-udev \
     libvulkan1 \
     wget \
-    python3-pip \
     google-chrome-stable && \  # Ensure Chrome is installed
-  pip3 install PyXDG && \
   echo "**** cleanup ****" && \
   apt-get clean && \
   rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
